@@ -1,0 +1,95 @@
+:root {
+  --accent: #304659;
+  --light: white;
+  --dark: #404040;
+  --table: #eff2f5;
+  --link: #5a82a6;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: Consolas, monospace;
+}
+
+body {
+  text-align: center;
+  background-color: var(--accent);
+  color: var(--light);
+}
+
+input {
+  background-color: var(--light);
+  color: var(--accent);
+  border-radius: 25px;
+  font-weight: bold;
+  border: none;
+  height: 30px;
+  width: 60px;
+  text-align: center;
+}
+
+#start {
+  text-transform: uppercase;
+  font-size: large;
+  background-color: var(--light);
+  color: var(--accent);
+  border-radius: 25px;
+  font-weight: bold;
+  border: none;
+  height: 30px;
+  width: 80px;
+  text-align: center;
+}
+
+table {
+  margin: 10px auto;
+  border-collapse: collapse;
+}
+
+td {
+  border: solid var(--table) 1px;
+  background-color: var(--light);
+  font-weight: bold;
+  width: 30px;
+  height: 30px;
+  color: var(--dark);
+}
+
+td > button {
+  width: 30px;
+  height: 30px;
+  color: var(--dark);
+  background-color: var(--accent);
+  border: none;
+}
+
+header,
+footer {
+  height: 90px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+footer {
+  bottom: 0;
+  position: fixed;
+  width: 100vw;
+  flex-direction: column;
+}
+
+main {
+  margin-top: 100px;
+}
+
+#game {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+a {
+  color: var(--light);
+}
