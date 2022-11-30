@@ -1,2 +1,4 @@
-# gamestation
+# Gamestation
 Javascript games
+- Snake
+- Minesweeper
