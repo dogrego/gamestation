@@ -10,3 +10,4 @@
 ## Bugs
 
 - The apple sometimes spawns into the wall
+- The grid of the canvas is not precise
