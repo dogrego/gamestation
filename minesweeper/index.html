@@ -5,20 +5,21 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Minesweeper</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/x-icon" href="/images/favicon.png">
+  <link rel="stylesheet" href="./style.css">
 </head>
 <body>
   <header>
     <h1>MINESWEEPER</h1>
   </header>
   <main>
-    <div>
+    <div id="entry">
       <label for="width">Width:</label>
-      <input type="number" id="width" min="4" max="20" required>
+      <input type="numeric" id="width" min="4" max="14">
       <label for="height">Height:</label>
-      <input type="number" id="height" min="4" max="20" required>
-      <label for="mineCount">Number of mines:</label>
-      <input type="number" id="mineCount" max="399" required>
+      <input type="numeric" id="height" min="4" max="14">
+      <label for="mineCount">numeric of mines:</label>
+      <input type="numeric" id="mineCount" min="1" max="196">
       <button id="start">Start</button>
     </div>
 
@@ -29,6 +30,6 @@
     <p>Made by Dora Gregorics</p>
     <p><a href="https://github.com/dogrego">Github</a> - <a href="https://gregoricsd.web.elte.hu">Website</a></p>
    </footer>
-  <script type="module" src="index.js"></script>
+  <script type="module" src="./index.js"></script>
 </body>
 </html>

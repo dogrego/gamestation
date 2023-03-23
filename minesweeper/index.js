@@ -1,39 +1,59 @@
-import { FieldState } from "./field.js";
-import { render } from "./render.js";
-import { AppState, Stage } from "./state.js";
+import { FieldState } from './field.js';
+import { render } from './render.js';
+import { AppState, Stage } from './state.js';
 
 const state = new AppState();
 
-const game = document.querySelector("#game");
-const newButton = document.querySelector("#start");
-const widthInput = document.querySelector("#width");
-const heightInput = document.querySelector("#height");
-const mineCountInput = document.querySelector("#mineCount");
+const game = document.querySelector('#game');
+const newButton = document.querySelector('#start');
+const widthInput = document.querySelector('#width');
+const heightInput = document.querySelector('#height');
+const mineCountInput = document.querySelector('#mineCount');
 
 function handleNewButtonClick() {
   const width = parseInt(widthInput.value);
   const height = parseInt(heightInput.value);
   const mineCount = parseInt(mineCountInput.value);
 
-  if(widthInput.value  === "" || heightInput.value  === "" || mineCountInput.value  === "") {
+  if (
+    widthInput.value === '' ||
+    heightInput.value === '' ||
+    mineCountInput.value === ''
+  ) {
+    alert('You must fill in the fields');
     return;
   }
 
-  if(mineCount >= width * height) {
+  if (
+    widthInput.value < 4 ||
+    widthInput.value > 14 ||
+    heightInput.value < 4 ||
+    heightInput.value > 14
+  ) {
+    alert('Width and height must be between 4 and 14');
+    return;
+  }
+
+  if (mineCountInput.value < 1 || mineCountInput.value > 196) {
+    alert('Number of mines must be between 1 and 196');
+    return;
+  }
+
+  if (mineCount >= width * height) {
     return;
   }
 
   state.init(width, height, mineCount);
   game.innerHTML = render(state);
 }
-newButton.addEventListener("click", handleNewButtonClick);
+newButton.addEventListener('click', handleNewButtonClick);
 
 function handleFieldDoubleClick(event) {
-  if(event.buttons !== 3) {
+  if (event.buttons !== 3) {
     return;
   }
 
-  if (!event.target.matches("td")) {
+  if (!event.target.matches('td')) {
     return;
   }
 
@@ -60,10 +80,10 @@ function handleFieldDoubleClick(event) {
 
   game.innerHTML = render(state);
 }
-game.addEventListener("mousedown", handleFieldDoubleClick);
+game.addEventListener('mousedown', handleFieldDoubleClick);
 
 function handleFieldLeftClick() {
-  if (!event.target.matches("button")) {
+  if (!event.target.matches('button')) {
     return;
   }
 
@@ -78,16 +98,16 @@ function handleFieldLeftClick() {
 
   state.reveal(x, y);
   state.checkForVictory();
-  
+
   game.innerHTML = render(state);
 }
 
-game.addEventListener("click", handleFieldLeftClick);
+game.addEventListener('click', handleFieldLeftClick);
 
 function handleFieldRightClick(event) {
   event.preventDefault();
-  
-  if (!event.target.matches("button")) {
+
+  if (!event.target.matches('button')) {
     return;
   }
   if (state.stage !== Stage.PLAYING) {
@@ -104,4 +124,4 @@ function handleFieldRightClick(event) {
   game.innerHTML = render(state);
 }
 
-game.addEventListener("contextmenu", handleFieldRightClick);
+game.addEventListener('contextmenu', handleFieldRightClick);
