@@ -1,0 +1,140 @@
+:root {
+  --accent: #304659;
+  --light: white;
+  --dark: #404040;
+  --link: #5a82a6;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: Consolas, monospace;
+}
+
+body {
+  text-align: center;
+  background-color: var(--accent);
+  color: var(--light);
+  text-align: center;
+}
+
+main {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+header,
+footer {
+  width: 100vw;
+  height: 90px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+footer {
+  bottom: 0;
+  position: fixed;
+  flex-direction: column;
+}
+
+a {
+  color: var(--light);
+}
+
+canvas {
+  background: url(../img/background-blue.png);
+  animation: scroll-background 5s linear infinite;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  position: relative;
+}
+
+@keyframes scroll-background {
+  from {
+    background-position-y: 0px;
+  }
+  to {
+    background-position-y: 256px;
+  }
+}
+
+canvas .enemy {
+  position: absolute;
+  margin-left: -20px;
+  margin-top: -18px;
+  width: 40px;
+}
+
+canvas .player {
+  position: absolute;
+  margin-left: -20px;
+  width: 40px;
+}
+
+canvas .laser {
+  position: absolute;
+  margin-left: -2.5px;
+  height: 30px;
+}
+
+canvas .enemy-laser {
+  position: absolute;
+  margin-left: -2.5px;
+  height: 30px;
+}
+
+.congratulations {
+  display: none;
+  position: absolute;
+  background: #c7a526;
+  color: white;
+  padding: 20px 50px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  text-align: center;
+  animation: pop-in 1s;
+}
+
+canvas-over {
+  display: none;
+  position: absolute;
+  background: #6b1818;
+  color: white;
+  padding: 20px 50px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  text-align: center;
+  animation: pop-in 1s;
+}
+
+.btn {
+  border: 2px solid #36bbf5;
+  border-radius: 3px;
+  box-shadow: 0 2px rgba(0, 0, 0, 0.15);
+  background: linear-gradient(
+    to bottom,
+    #fff 0%,
+    #fff 49%,
+    #f5f5f5 50%,
+    #eee 100%
+  );
+  padding: 10px 40px;
+  font: 14px sans-serif;
+}
+@keyframes pop-in {
+  0% {
+    opacity: 0;
+    transform: translate(0, -100px);
+  }
+  10% {
+    opacity: 1;
+  }
+  50% {
+    transform: translate(0, 30px);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+}
